@@ -117,10 +117,12 @@
                 ctx.fillStyle = grd; ctx.fillRect(0,0,128,128);
 
             } else if (type === 'gift_red') {
-                ctx.fillStyle = '#D32F2F'; ctx.fillRect(20, 20, 88, 88);
-                ctx.fillStyle = '#FFD700'; ctx.fillRect(54, 20, 20, 88); ctx.fillRect(20, 54, 88, 20);
-                ctx.strokeStyle = "rgba(0,0,0,0.3)"; ctx.lineWidth=2; ctx.strokeRect(20,20,88,88);
-            }
+                ctx.fillStyle = '#D32F2F';
+ctx.fillRect(16, 16, 96, 96);
+
+ctx.fillStyle = '#FFD700';
+ctx.fillRect(60, 16, 12, 96);
+ctx.fillRect(16, 60, 96, 12);}
             return new THREE.CanvasTexture(canvas);
         }
 
@@ -294,6 +296,10 @@
                 transparent: true,
                 opacity: 1.0
             });
+            textures.gift.minFilter = THREE.NearestFilter;
+textures.gift.magFilter = THREE.NearestFilter;
+textures.gift.generateMipmaps = false;
+textures.gift.needsUpdate = true;
 
             for (let i = 0; i < 5; i++) {
                 const box = new THREE.Mesh(boxGeo, baseMat.clone());
